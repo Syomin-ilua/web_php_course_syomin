@@ -76,6 +76,42 @@ $orders = [
 array_push($orders, "Компьютер", "Ноутбук");
 
 sort($orders);
+
+// Шестое задание
+$ordersArrays = ["Чайник" => 1230, "Кофейник" => 1120, "Кипятильник" => 220];
+$ordersArrays["Ложка"] = 200;
+$ordersArrays["Ручка"] = 100;
+
+
+function sumOrders($ordersArrays) {
+
+    $summa = array_sum($ordersArrays);
+    return $summa;
+} 
+
+function increasingArray($ordersArrays) {
+    asort($ordersArrays);
+    foreach($ordersArrays as $key => $value) {
+        echo "Товар: " .$value 
+             ." Цена: " .$key ."<br>";
+    }
+}
+
+function decreasingArray($ordersArrays) {
+    arsort($ordersArrays);
+    foreach($ordersArrays as $key => $value) {
+        echo "Товар: " .$value 
+             ." Цена: " .$key ."<br>";
+    }
+}
+
+function alphabeticalArray($ordersArrays) {
+    ksort($ordersArrays);
+    foreach($ordersArrays as $key => $value) {
+        echo "Товар: " .$value 
+             ." Цена: " .$key ."<br>";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -188,6 +224,77 @@ sort($orders);
         ?>
         <br>
     </p>
+
+    <h1>Шестое задание</h1>
+    <p>
+    <?
+        foreach($ordersArrays as $key => $value) {
+            echo "<span>Товар: $key </span> <br> <b> Цена: $value </b> <br>";
+            echo "<hr>";
+        }
+
+        echo "<b>Кол-во товаров: </b>" .count($ordersArrays) ."<br>";
+
+        echo "<b>Сумарная стоимость товаров: </b>".sumOrders($ordersArrays) ."<br>";
+        
+        echo "<br>";
+
+        echo "<b>Массив в порядке возрастания цены: </b>" ."<br>";
+        increasingArray($ordersArrays);
+
+        echo "<br>";
+
+        echo "<b>Массив в порядке убывания цены: </b>" ."<br>";
+        decreasingArray($ordersArrays);
+
+        echo "<br>";
+
+        echo "<b>Массив товаров в алфавитном порядке: </b>" ."<br>";
+        alphabeticalArray($ordersArrays)
+    ?>
+    </p>
+
+    <h1>Седьмое задание</h1>
+    <div>
+        <?
+            echo "Здравствуйте, меня зовут Илья, я - веб разработчик, мой стек технологий - HTML, CSS, Sass, Bootstrap, JavaScipt, PHP(базовый уровень), работа с бд SQL ." 
+        ?>
+    </div>
+
+    <h1>Восьмое задание</h1>
+    <div>
+        <?
+            echo '<table border=1>';
+            for ($i=0; $i<=255; $i += 50) 
+            {
+                echo '<tr>';
+                
+                for ($j=0; $j<=255; $j += 50)
+                {
+                    for ($k=0; $k<=255; $k += 50)
+                    {
+                        echo '<td style="background-color:RGB('.$i.', '.$j.', '.$k.');"> rgb('.$i.', '.$j.', '.$k.')</td>';
+                    }
+                }
+                
+                echo '</tr>';
+            }
+            echo'</table>';
+        ?>
+    </div>
+
+    <h1>Девятое задание</h1>
+    <div>
+        <?
+            $n = 50;
+            do {
+                $min = rand(0, 30);
+                $max = rand(0, 30);
+                $sum = $min + $max;
+                echo $sum ."<br>";
+            } while ($sum <= $n) 
+        ?>
+    </div>
     
 </body>
 </html>
