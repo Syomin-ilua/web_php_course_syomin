@@ -22,20 +22,44 @@ $average = ($price1 + $price2 + $price3) / 3;
 
 $maxProduct = $product1;
 
-function maxPrice($price1,$price2, $price3) {
+function maxPrice($price1,$price2, $price3, $product1, $product2, $product3) {
     $maxPrice = 0;
+    $maxProduct = '';
 
     if($price1 > $price2 && $price1 > $price3) {
         $maxPrice = $price1; 
+        $maxProduct = $product1;
     } else if ($price2 > $price1 && $price2 > $price3) {
         $maxPrice = $price2;
+        $maxProduct = $product2;
     } else if($price3 > $price1 && $price3 > $price2) {
         $maxPrice = $price3;
+        $maxProduct = $product3;
     } else {
         $maxPrice = 'Введите полную цену товара!';
     }
 
     return $maxPrice;
+}
+
+function maxProduct($price1,$price2, $price3, $product1, $product2, $product3) {
+    $maxPrice = 0;
+    $maxProduct = '';
+
+    if($price1 > $price2 && $price1 > $price3) {
+        $maxPrice = $price1; 
+        $maxProduct = $product1;
+    } else if ($price2 > $price1 && $price2 > $price3) {
+        $maxPrice = $price2;
+        $maxProduct = $product2;
+    } else if($price3 > $price1 && $price3 > $price2) {
+        $maxPrice = $price3;
+        $maxProduct = $product3;
+    } else {
+        $maxPrice = 'Введите полную цену товара!';
+    }
+
+    return $maxProduct;
 }
 
 // Третье задание
@@ -184,13 +208,13 @@ function alphabeticalArray($ordersArrays) {
 
     <p>
         <?
-            echo 'Самый дорогой товар - ' .$maxProduct. ' с ценой ' .maxPrice($price1,$price2, $price3). ' руб';
+            echo 'Самый дорогой товар - ' .maxProduct($price1, $price2, $price3, $product1, $product2, $product3) . ' - с ценой ' .maxPrice($price1,$price2, $price3, $product1, $product2, $product3). ' руб';
         ?> <br>
         <?
-            echo 'Самый дорогой товар - ' .$maxProduct. ' с ценой ' .maxPrice($price4,$price5, $price6). ' руб';
+            echo 'Самый дорогой товар - ' .maxProduct($price4,$price5, $price6, $product1, $product2, $product3) . ' - с ценой '  .maxPrice($price4,$price5, $price6, $product1, $product2, $product3). ' руб';
         ?> <br>
         <?
-            echo 'Самый дорогой товар - ' .$maxProduct. ' с ценой ' .maxPrice($price7, $price8, $price9). ' руб';
+            echo 'Самый дорогой товар - ' .maxProduct($price7, $price8, $price9, $product1, $product2, $product3) . ' - с ценой '  .maxPrice($price7, $price8, $price9, $product1, $product2, $product3). ' руб';
         ?>
     </p>
 
